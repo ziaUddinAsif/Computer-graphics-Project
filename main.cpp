@@ -5,7 +5,17 @@
 
 #define PI 3.141516
 
+
+// =====================================================
 // GLOBAL VARIABLES
+// =====================================================
+
+int currentScenario = 1;
+
+
+// =====================================================
+// SCENARIO 1 VARIABLES - YOUR VARIABLES
+// =====================================================
 
 float cloudOffset = 0.0f;
 float fireTime = 0.0f;
@@ -13,6 +23,41 @@ float flameAnim = 0.0f;
 
 float starX[150];
 float starY[150];
+
+
+// =====================================================
+// SCENARIO 2 VARIABLES
+// FRIEND 2 PUTS VARIABLES HERE
+// =====================================================
+
+
+
+// =====================================================
+// SCENARIO 3 VARIABLES
+// FRIEND 3 PUTS VARIABLES HERE
+// =====================================================
+
+
+
+// =====================================================
+// SCENARIO 4 VARIABLES
+// FRIEND 4 PUTS VARIABLES HERE
+// =====================================================
+
+
+
+// =====================================================
+// SCENARIO 5 VARIABLES
+// FRIEND 5 PUTS VARIABLES HERE
+// =====================================================
+
+
+
+
+// =====================================================
+// SCENARIO 1 FUNCTIONS - YOUR CODE
+// =====================================================
+
 
 // CIRCLE
 
@@ -37,6 +82,7 @@ void circleFunc(float x, float y, float r)
     glEnd();
 }
 
+
 // TRIANGLE
 
 void drawTriangle(
@@ -52,6 +98,7 @@ void drawTriangle(
 
     glEnd();
 }
+
 
 // MOON
 
@@ -75,6 +122,7 @@ void drawMoon()
     circleFunc(0.91f, 0.90f, 0.006f);
 }
 
+
 // STARS
 
 void drawStars()
@@ -93,6 +141,7 @@ void drawStars()
     glEnd();
 }
 
+
 // CLOUD
 
 void drawOneCloud()
@@ -110,6 +159,7 @@ void drawOneCloud()
     circleFunc(0.06f, 0.71f, 0.03f);
 }
 
+
 // CLOUDS
 
 void drawClouds()
@@ -126,6 +176,7 @@ void drawClouds()
 
     glPopMatrix();
 }
+
 
 // MOUNTAINS / HILLS
 
@@ -147,6 +198,7 @@ void drawEnvironment()
 
     glEnd();
 
+
     // Dark side
 
     glColor3ub(15, 40, 15);
@@ -160,6 +212,7 @@ void drawEnvironment()
     glVertex2f(0.0f, 0.0f);
 
     glEnd();
+
 
     // Right hill
 
@@ -175,6 +228,7 @@ void drawEnvironment()
 
     glEnd();
 
+
     // River / lake
 
     glColor3ub(20, 40, 80);
@@ -186,6 +240,7 @@ void drawEnvironment()
     glVertex2f(0.4f, 0.0f);
 
     glEnd();
+
 
     // Ground
 
@@ -199,6 +254,7 @@ void drawEnvironment()
     glVertex2f(-1.0f, -1.0f);
 
     glEnd();
+
 
     // Ground upper section
 
@@ -217,6 +273,7 @@ void drawEnvironment()
     glEnd();
 }
 
+
 // TENT
 
 void drawTent()
@@ -233,6 +290,7 @@ void drawTent()
 
     glEnd();
 
+
     // Main panel
 
     glColor3ub(90, 80, 0);
@@ -246,6 +304,7 @@ void drawTent()
 
     glEnd();
 
+
     // Bright front
 
     glColor3ub(227, 224, 70);
@@ -258,6 +317,7 @@ void drawTent()
 
     glEnd();
 
+
     glColor3ub(207, 204, 64);
 
     glBegin(GL_POLYGON);
@@ -267,6 +327,7 @@ void drawTent()
     glVertex2f(-0.40f, -0.76f);
 
     glEnd();
+
 
     // Tent small lines
 
@@ -289,6 +350,7 @@ void drawTent()
     glEnd();
 }
 
+
 // TWO TENTS
 
 void drawTents()
@@ -305,11 +367,13 @@ void drawTents()
     glPopMatrix();
 }
 
+
 // CAMPFIRE
 
 void drawFire()
 {
     float flicker = 0.01f * sin(flameAnim);
+
 
     // Outer fire
 
@@ -320,6 +384,7 @@ void drawFire()
         -0.78f,
         0.022f
     );
+
 
     // Orange flame
 
@@ -335,6 +400,7 @@ void drawFire()
 
     glEnd();
 
+
     // Red flame
 
     glColor3ub(255, 80, 0);
@@ -347,6 +413,7 @@ void drawFire()
     glVertex2f(-0.336f, -0.750f + flicker);
 
     glEnd();
+
 
     // Yellow flame
 
@@ -362,17 +429,21 @@ void drawFire()
 
     glEnd();
 
+
     circleFunc(
         -0.32f,
         -0.768f,
         0.007f
     );
 }
+
+
 // TREES
 
 void drawTree(float x, float y, float s)
 {
     glColor3ub(20, 50, 20);
+
 
     circleFunc(
         x - 0.10f * s,
@@ -380,11 +451,13 @@ void drawTree(float x, float y, float s)
         0.13f * s
     );
 
+
     circleFunc(
         x - 0.01f * s,
         y + 0.56f * s,
         0.13f * s
     );
+
 
     circleFunc(
         x + 0.10f * s,
@@ -392,19 +465,23 @@ void drawTree(float x, float y, float s)
         0.10f * s
     );
 
+
     circleFunc(
         x - 0.08f * s,
         y + 0.38f * s,
         0.13f * s
     );
 
+
     glColor3ub(30, 70, 30);
+
 
     circleFunc(
         x + 0.08f * s,
         y + 0.35f * s,
         0.13f * s
     );
+
 
     // trunk
 
@@ -421,6 +498,7 @@ void drawTree(float x, float y, float s)
         y
     );
 }
+
 
 // TREES
 
@@ -441,6 +519,7 @@ void drawTrees()
     drawTree(0.80f, -0.30f, 0.65f);
 }
 
+
 // WATCH TOWER
 
 void drawWatchTower()
@@ -448,6 +527,7 @@ void drawWatchTower()
     float x = 0.3f;
     float y = -0.2f;
     float s = 1.0f;
+
 
     // Legs
 
@@ -467,6 +547,7 @@ void drawWatchTower()
 
     glEnd();
 
+
     // Platform
 
     glColor3f(0.08f, 0.04f, 0.02f);
@@ -480,6 +561,7 @@ void drawWatchTower()
 
     glEnd();
 
+
     // Roof
 
     glColor3f(0.10f, 0.03f, 0.01f);
@@ -491,6 +573,7 @@ void drawWatchTower()
     glVertex2f(x + 0.12f*s, y + 0.35f*s);
 
     glEnd();
+
 
     // Support lines
 
@@ -507,22 +590,58 @@ void drawWatchTower()
     glEnd();
 }
 
-// DISPLAY
 
-void display()
+
+// =====================================================
+// SCENARIO 2 FUNCTIONS
+// FRIEND 2 PUTS HIS FUNCTIONS HERE
+// =====================================================
+
+
+// Example:
+//
+// void drawSomething()
+// {
+//     ...
+// }
+//
+// void drawSomethingElse()
+// {
+//     ...
+// }
+
+
+
+// =====================================================
+// SCENARIO 3 FUNCTIONS
+// FRIEND 3 PUTS HIS FUNCTIONS HERE
+// =====================================================
+
+
+
+// =====================================================
+// SCENARIO 4 FUNCTIONS
+// FRIEND 4 PUTS HIS FUNCTIONS HERE
+// =====================================================
+
+
+
+// =====================================================
+// SCENARIO 5 FUNCTIONS
+// FRIEND 5 PUTS HIS FUNCTIONS HERE
+// =====================================================
+
+
+
+
+// =====================================================
+// SCENARIO 1
+// =====================================================
+
+void scenario1()
 {
-    // NIGHT SKY
-
-    glClearColor(
-        0.05f,
-        0.08f,
-        0.18f,
-        1.0f
-    );
-
-    glClear(GL_COLOR_BUFFER_BIT);
-
     drawMoon();
+
     drawStars();
 
     drawClouds();
@@ -536,27 +655,358 @@ void display()
     drawTents();
 
     drawFire();
+}
+
+
+// =====================================================
+// SCENARIO 2
+// =====================================================
+
+void scenario2()
+{
+    // FRIEND 2 PUTS HIS DRAWING CALLS HERE
+
+
+    // Example:
+    //
+    // drawSky();
+    // drawSun();
+    // drawClouds();
+    // drawTrees();
+}
+
+
+// =====================================================
+// SCENARIO 3
+// =====================================================
+
+void scenario3()
+{
+    // FRIEND 3 PUTS HIS DRAWING CALLS HERE
+}
+
+
+// =====================================================
+// SCENARIO 4
+// =====================================================
+
+void scenario4()
+{
+    // FRIEND 4 PUTS HIS DRAWING CALLS HERE
+}
+
+
+// =====================================================
+// SCENARIO 5
+// =====================================================
+
+void scenario5()
+{
+    // FRIEND 5 PUTS HIS DRAWING CALLS HERE
+}
+
+
+
+
+// =====================================================
+// DISPLAY
+// =====================================================
+
+void display()
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glLoadIdentity();
+
+
+    // =================================================
+    // SCENARIO 1
+    // =================================================
+
+    if (currentScenario == 1)
+    {
+        glMatrixMode(GL_PROJECTION);
+
+        glLoadIdentity();
+
+        gluOrtho2D(
+            -1,
+            1,
+            -1,
+            1
+        );
+
+        glMatrixMode(GL_MODELVIEW);
+
+        glLoadIdentity();
+
+
+        glClearColor(
+            0.05f,
+            0.08f,
+            0.18f,
+            1.0f
+        );
+
+        glClear(GL_COLOR_BUFFER_BIT);
+
+
+        scenario1();
+    }
+
+
+    // =================================================
+    // SCENARIO 2
+    // =================================================
+
+    else if (currentScenario == 2)
+    {
+        glMatrixMode(GL_PROJECTION);
+
+        glLoadIdentity();
+
+
+        // FRIEND 2 CHANGE THIS
+        // ACCORDING TO HIS COORDINATE SYSTEM
+
+        gluOrtho2D(
+            -1,
+            1,
+            -1,
+            1
+        );
+
+
+        glMatrixMode(GL_MODELVIEW);
+
+        glLoadIdentity();
+
+
+        glClearColor(
+            0.0f,
+            0.0f,
+            0.0f,
+            1.0f
+        );
+
+        glClear(GL_COLOR_BUFFER_BIT);
+
+
+        scenario2();
+    }
+
+
+    // =================================================
+    // SCENARIO 3
+    // =================================================
+
+    else if (currentScenario == 3)
+    {
+        glMatrixMode(GL_PROJECTION);
+
+        glLoadIdentity();
+
+
+        // FRIEND 3 CHANGE THIS
+        // ACCORDING TO HIS COORDINATE SYSTEM
+
+        gluOrtho2D(
+            -1,
+            1,
+            -1,
+            1
+        );
+
+
+        glMatrixMode(GL_MODELVIEW);
+
+        glLoadIdentity();
+
+
+        glClearColor(
+            0.0f,
+            0.0f,
+            0.0f,
+            1.0f
+        );
+
+        glClear(GL_COLOR_BUFFER_BIT);
+
+
+        scenario3();
+    }
+
+
+    // =================================================
+    // SCENARIO 4
+    // =================================================
+
+    else if (currentScenario == 4)
+    {
+        glMatrixMode(GL_PROJECTION);
+
+        glLoadIdentity();
+
+
+        // FRIEND 4 CHANGE THIS
+        // ACCORDING TO HIS COORDINATE SYSTEM
+
+        gluOrtho2D(
+            -1,
+            1,
+            -1,
+            1
+        );
+
+
+        glMatrixMode(GL_MODELVIEW);
+
+        glLoadIdentity();
+
+
+        glClearColor(
+            0.0f,
+            0.0f,
+            0.0f,
+            1.0f
+        );
+
+        glClear(GL_COLOR_BUFFER_BIT);
+
+
+        scenario4();
+    }
+
+
+    // =================================================
+    // SCENARIO 5
+    // =================================================
+
+    else if (currentScenario == 5)
+    {
+        glMatrixMode(GL_PROJECTION);
+
+        glLoadIdentity();
+
+
+        // FRIEND 5 CHANGE THIS
+        // ACCORDING TO HIS COORDINATE SYSTEM
+
+        gluOrtho2D(
+            -1,
+            1,
+            -1,
+            1
+        );
+
+
+        glMatrixMode(GL_MODELVIEW);
+
+        glLoadIdentity();
+
+
+        glClearColor(
+            0.0f,
+            0.0f,
+            0.0f,
+            1.0f
+        );
+
+        glClear(GL_COLOR_BUFFER_BIT);
+
+
+        scenario5();
+    }
+
 
     glFlush();
 }
 
+
+
+// =====================================================
+// KEYBOARD
+// =====================================================
+
+void keyboard(unsigned char key, int x, int y)
+{
+    if (key == '1')
+    {
+        currentScenario = 1;
+    }
+
+    else if (key == '2')
+    {
+        currentScenario = 2;
+    }
+
+    else if (key == '3')
+    {
+        currentScenario = 3;
+    }
+
+    else if (key == '4')
+    {
+        currentScenario = 4;
+    }
+
+    else if (key == '5')
+    {
+        currentScenario = 5;
+    }
+
+
+    glutPostRedisplay();
+}
+
+
+
+// =====================================================
 // TIMER
+// =====================================================
 
 void update(int value)
 {
-    // Cloud movement
+    // =================================================
+    // YOUR SCENARIO 1 ANIMATION
+    // =================================================
 
     cloudOffset += 0.0005f;
+
     flameAnim += 0.1f;
 
-    if (cloudOffset > 1.0f)
-        cloudOffset = -1.0f;
 
-    // Fire animation
+    if (cloudOffset > 1.0f)
+    {
+        cloudOffset = -1.0f;
+    }
+
 
     fireTime += 0.05f;
 
+
+    // =================================================
+    // FRIENDS CAN ADD THEIR ANIMATION HERE
+    // =================================================
+
+    // Friend 2:
+    // animation code
+
+
+    // Friend 3:
+    // animation code
+
+
+    // Friend 4:
+    // animation code
+
+
+    // Friend 5:
+    // animation code
+
+
     glutPostRedisplay();
+
 
     glutTimerFunc(
         16,
@@ -565,13 +1015,18 @@ void update(int value)
     );
 }
 
+
+
+// =====================================================
 // INITIALIZATION
+// =====================================================
 
 void init()
 {
     glMatrixMode(GL_PROJECTION);
 
     glLoadIdentity();
+
 
     gluOrtho2D(
         -1,
@@ -580,11 +1035,15 @@ void init()
         1
     );
 
+
     glMatrixMode(GL_MODELVIEW);
 
     glLoadIdentity();
 
-    // Stars
+
+    // =================================================
+    // STARS
+    // =================================================
 
     for (int i = 0; i < 150; i++)
     {
@@ -596,29 +1055,41 @@ void init()
     }
 }
 
+
+
+// =====================================================
 // MAIN
+// =====================================================
 
 int main(int argc, char** argv)
 {
     glutInit(&argc, argv);
+
 
     glutInitDisplayMode(
         GLUT_SINGLE |
         GLUT_RGB
     );
 
+
     glutInitWindowSize(
         1000,
         700
     );
 
+
     glutCreateWindow(
-        "Dynamic Camping - Night Mode"
+        "Group Graphics Project"
     );
+
 
     init();
 
+
     glutDisplayFunc(display);
+
+    glutKeyboardFunc(keyboard);
+
 
     glutTimerFunc(
         16,
@@ -626,7 +1097,9 @@ int main(int argc, char** argv)
         0
     );
 
+
     glutMainLoop();
+
 
     return 0;
 }
